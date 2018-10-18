@@ -160,9 +160,9 @@ def print_model_flag(model_path, data_x):
     pre_result = model.predict(data_x)
     pre_result = pre_result.astype(int)
     print(pre_result)
-    df = pd.read_csv("data/12345.csv", encoding="GBK")
+    df = pd.read_csv("data/mj-data-12345-new.csv", encoding="GBK")
     df["new_flag"] = pre_result
-    df.to_csv("data/12345-model.csv", encoding="GBK", index=False)
+    df.to_csv("data/mj-data-12345-model.csv", encoding="GBK", index=False)
     print("over")
 
 
@@ -176,12 +176,12 @@ if __name__ == "__main__":
     # model_train_lr(True)
 
     # 测试集测试数据
-    data = pd.read_csv("data/train-12345-time.csv")
+    data = pd.read_csv("data/train-mj-data-12345.csv")
     test_data = data.values
 
     # model_test(lr_model_path, test_data[:, 2:], test_data[:, 1])
 
-    print_model_flag(lr_model_path, test_data[:, 3:])
+    print_model_flag(lr_model_path, test_data[:, 2:])
 
 
 
